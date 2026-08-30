@@ -1,4 +1,502 @@
-DOCTYPE html>
+D<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex Rivera — Creative Developer & Designer</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .dark .glass {
+            background: rgba(17, 24, 39, 0.7);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 font-sans transition-colors duration-300">
+
+    <header class="sticky top-0 z-40 w-full glass border-b border-gray-200/50 dark:border-gray-800/50 transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="#" class="flex items-center space-x-2">
+                <span class="w-9 h-9 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center text-white font-bold text-lg shadow-md shadow-blue-500/20">
+                    A
+                </span>
+                <span class="text-xl font-bold tracking-tight text-gray-900 dark:text-white">Alex<span class="text-blue-600 dark:text-blue-400">.dev</span></span>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                <a href="#about" class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">About</a>
+                <a href="#projects" class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Projects</a>
+                <a href="#skills" class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Skills</a>
+                <a href="#contact" class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Contact</a>
+            </nav>
+
+            <div class="flex items-center space-x-3">
+                <!-- Theme Switcher -->
+                <button id="themeToggleBtn" aria-label="Toggle Theme" class="p-2.5 rounded-xl bg-gray-200/70 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-300/80 dark:hover:bg-gray-700 transition-all">
+                    <i id="themeIcon" class="fas fa-moon text-base"></i>
+                </button>
+                
+                <!-- CTA Button -->
+                <button onclick="openModal()" class="hidden sm:inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-xl shadow-md shadow-blue-500/20 transition-all transform active:scale-95">
+                    Let's Talk
+                </button>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" aria-label="Open Mobile Menu" class="md:hidden p-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-800">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Nav Menu -->
+        <div id="mobileNav" class="hidden md:hidden border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 px-4 pt-3 pb-6 space-y-3">
+            <a href="#about" onclick="toggleMobileNav()" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800">About</a>
+            <a href="#projects" onclick="toggleMobileNav()" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800">Projects</a>
+            <a href="#skills" onclick="toggleMobileNav()" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800">Skills</a>
+            <a href="#contact" onclick="toggleMobileNav()" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800">Contact</a>
+            <button onclick="openModal(); toggleMobileNav();" class="w-full text-center px-4 py-2.5 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-xl shadow-sm">
+                Let's Talk
+            </button>
+        </div>
+    </header>
+
+    <section class="relative pt-20 pb-16 md:pt-32 md:pb-24 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto space-y-6">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800/60 text-blue-600 dark:text-blue-400 text-xs sm:text-sm font-medium">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    Available for freelance & full-time roles
+                </div>
+
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-gray-900 dark:text-white leading-tight">
+                    Crafting modern <br class="hidden sm:inline" />
+                    <span class="gradient-text">digital experiences</span>
+                </h1>
+
+                <p class="text-lg sm:text-xl text-gray-600 dark:text-gray-400 font-normal leading-relaxed">
+                    Hi, I'm Alex. I specialize in building responsive web applications, intuitive user interfaces, and engaging digital solutions with clean code.
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+                    <a href="#projects" class="w-full sm:w-auto px-7 py-3.5 text-base font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-xl shadow-lg shadow-blue-500/25 transition-all transform hover:-translate-y-0.5">
+                        Explore Work <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                    </a>
+                    <button onclick="openModal()" class="w-full sm:w-auto px-7 py-3.5 text-base font-semibold text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 border border-gray-300 dark:border-gray-700 rounded-xl transition-all">
+                        Get In Touch
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Decorative background glow -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-400/10 dark:bg-blue-600/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
+    </section>
+
+    <section class="py-12 bg-white/60 dark:bg-gray-800/40 border-y border-gray-200/60 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="space-y-1">
+                    <div class="text-3xl sm:text-4xl font-extrabold text-blue-600 dark:text-blue-400">5+</div>
+                    <div class="text-sm font-medium text-gray-500 dark:text-gray-400">Years Experience</div>
+                </div>
+                <div class="space-y-1">
+                    <div class="text-3xl sm:text-4xl font-extrabold text-blue-600 dark:text-blue-400">40+</div>
+                    <div class="text-sm font-medium text-gray-500 dark:text-gray-400">Projects Completed</div>
+                </div>
+                <div class="space-y-1">
+                    <div class="text-3xl sm:text-4xl font-extrabold text-blue-600 dark:text-blue-400">25+</div>
+                    <div class="text-sm font-medium text-gray-500 dark:text-gray-400">Happy Clients</div>
+                </div>
+                <div class="space-y-1">
+                    <div class="text-3xl sm:text-4xl font-extrabold text-blue-600 dark:text-blue-400">99.9%</div>
+                    <div class="text-sm font-medium text-gray-500 dark:text-gray-400">Client Satisfaction</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 space-y-4 md:space-y-0">
+                <div>
+                    <h2 class="text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400">Portfolio</h2>
+                    <p class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mt-1">Featured Work</p>
+                </div>
+
+                <!-- Filter Buttons -->
+                <div class="flex flex-wrap gap-2">
+                    <button onclick="filterProjects('all')" class="filter-btn active px-4 py-2 text-sm font-medium rounded-xl bg-blue-600 text-white transition-all">All</button>
+                    <button onclick="filterProjects('web')" class="filter-btn px-4 py-2 text-sm font-medium rounded-xl bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-700 transition-all">Web Dev</button>
+                    <button onclick="filterProjects('app')" class="filter-btn px-4 py-2 text-sm font-medium rounded-xl bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-700 transition-all">App Dev</button>
+                    <button onclick="filterProjects('design')" class="filter-btn px-4 py-2 text-sm font-medium rounded-xl bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-700 transition-all">UI/UX Design</button>
+                </div>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projectsGrid">
+                
+                <!-- Project Card 1 -->
+                <div class="project-card group bg-white dark:bg-gray-800 rounded-2xl overflow-hidden border border-gray-200/80 dark:border-gray-700/60 shadow-sm hover:shadow-xl transition-all duration-300" data-category="web">
+                    <div class="relative overflow-hidden aspect-video bg-gray-100 dark:bg-gray-900">
+                        <img src="https://placehold.co/600x400/2563eb/ffffff?text=E-Commerce+Platform" alt="E-Commerce Project" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-blue-900/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-300">Web Dev</span>
+                            <a href="#" aria-label="View live project" class="text-gray-400 hover:text-blue-600 dark:hover:text-blue-400"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Nexus E-Commerce</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">A modern full-stack store with real-time inventory management and stripe checkout integrated.</p>
+                        <div class="flex flex-wrap gap-2 pt-2 text-xs font-mono text-gray-500 dark:text-gray-400">
+                            <span class="px-2 py-1 bg-gray-100 dark:bg-gray-700/50 rounded">React</span>
+                            <span class="px-2 py-1 bg-gray-100 dark:bg-gray-700/50 rounded">Node.js</span>
+                            <span class="px-2 py-1 bg-gray-100 dark:bg-gray-700/50 rounded">Tailwind</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div class="project-card group bg-white dark:bg-gray-800 rounded-2xl overflow-hidden border border-gray-200/80 dark:border-gray-700/60 shadow-sm hover:shadow-xl transition-all duration-300" data-category="app">
+                    <div class="relative overflow-hidden aspect-video bg-gray-100 dark:bg-gray-900">
+                        <img src="https://placehold.co/600x400/7c3aed/ffffff?text=Task+Flow+App" alt="Task Flow App" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-purple-900/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-purple-100 dark:bg-purple-900/50 text-purple-600 dark:text-purple-300">App Dev</span>
+                            <a href="#" aria-label="View live project" class="text-gray-400 hover:text-blue-600 dark:hover:text-blue-400"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">TaskFlow Mobile</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">Cross-platform productivity software with drag-and-drop Kanban boards and offline sync.</p>
+                        <div class="flex flex-wrap gap-2 pt-2 text-xs font-mono text-gray-500 dark:text-gray-400">
+                            <span class="px-2 py-1 bg-gray-100 dark:bg-gray-700/50 rounded">Flutter</span>
+                            <span class="px-2 py-1 bg-gray-100 dark:bg-gray-700/50 rounded">Firebase</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 3 -->
+                <div class="project-card group bg-white dark:bg-gray-800 rounded-2xl overflow-hidden border border-gray-200/80 dark:border-gray-700/60 shadow-sm hover:shadow-xl transition-all duration-300" data-category="design">
+                    <div class="relative overflow-hidden aspect-video bg-gray-100 dark:bg-gray-900">
+                        <img src="https://placehold.co/600x400/059669/ffffff?text=Fintech+Dashboard" alt="Fintech Dashboard" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-emerald-900/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-emerald-100 dark:bg-emerald-900/50 text-emerald-600 dark:text-emerald-300">UI/UX Design</span>
+                            <a href="#" aria-label="View live project" class="text-gray-400 hover:text-blue-600 dark:hover:text-blue-400"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">Aura Financial UI</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">Comprehensive design system and interface layout for a next-gen investment platform.</p>
+                        <div class="flex flex-wrap gap-2 pt-2 text-xs font-mono text-gray-500 dark:text-gray-400">
+                            <span class="px-2 py-1 bg-gray-100 dark:bg-gray-700/50 rounded">Figma</span>
+                            <span class="px-2 py-1 bg-gray-100 dark:bg-gray-700/50 rounded">Design System</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-20 bg-gray-100/70 dark:bg-gray-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                
+                <div class="space-y-6">
+                    <h2 class="text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400">Expertise</h2>
+                    <h3 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">Skills & Technologies</h3>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                        I specialize in building modular web systems with modern frameworks and robust backends. Here is a breakdown of my core technical stack.
+                    </p>
+
+                    <div class="space-y-4 pt-2">
+                        <!-- Skill 1 -->
+                        <div>
+                            <div class="flex justify-between text-sm font-semibold mb-1">
+                                <span class="text-gray-800 dark:text-gray-200">Frontend (React / Next.js / Tailwind)</span>
+                                <span class="text-blue-600 dark:text-blue-400">95%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 h-2.5 rounded-full overflow-hidden">
+                                <div class="bg-blue-600 h-2.5 rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <!-- Skill 2 -->
+                        <div>
+                            <div class="flex justify-between text-sm font-semibold mb-1">
+                                <span class="text-gray-800 dark:text-gray-200">Backend (Node.js / Python / Express)</span>
+                                <span class="text-blue-600 dark:text-blue-400">88%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 h-2.5 rounded-full overflow-hidden">
+                                <div class="bg-blue-600 h-2.5 rounded-full" style="width: 88%"></div>
+                            </div>
+                        </div>
+                        <!-- Skill 3 -->
+                        <div>
+                            <div class="flex justify-between text-sm font-semibold mb-1">
+                                <span class="text-gray-800 dark:text-gray-200">Databases (PostgreSQL / MongoDB)</span>
+                                <span class="text-blue-600 dark:text-blue-400">82%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 h-2.5 rounded-full overflow-hidden">
+                                <div class="bg-blue-600 h-2.5 rounded-full" style="width: 82%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skill Cards Grid -->
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="p-6 bg-white dark:bg-gray-800 rounded-2xl border border-gray-200/80 dark:border-gray-700/60 shadow-sm space-y-3">
+                        <div class="w-12 h-12 rounded-xl bg-blue-100 dark:bg-blue-900/40 text-blue-600 dark:text-blue-400 flex items-center justify-center text-xl">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-900 dark:text-white">Clean Code</h4>
+                        <p class="text-xs text-gray-500 dark:text-gray-400">Maintainable, well-documented, and modular architecture.</p>
+                    </div>
+
+                    <div class="p-6 bg-white dark:bg-gray-800 rounded-2xl border border-gray-200/80 dark:border-gray-700/60 shadow-sm space-y-3">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-100 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-900 dark:text-white">Responsive Design</h4>
+                        <p class="text-xs text-gray-500 dark:text-gray-400">Flawless behavior across all screen sizes and mobile devices.</p>
+                    </div>
+
+                    <div class="p-6 bg-white dark:bg-gray-800 rounded-2xl border border-gray-200/80 dark:border-gray-700/60 shadow-sm space-y-3">
+                        <div class="w-12 h-12 rounded-xl bg-purple-100 dark:bg-purple-900/40 text-purple-600 dark:text-purple-400 flex items-center justify-center text-xl">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-900 dark:text-white">Performance First</h4>
+                        <p class="text-xs text-gray-500 dark:text-gray-400">Optimized loading speeds, Lighthouse scores, and UX.</p>
+                    </div>
+
+                    <div class="p-6 bg-white dark:bg-gray-800 rounded-2xl border border-gray-200/80 dark:border-gray-700/60 shadow-sm space-y-3">
+                        <div class="w-12 h-12 rounded-xl bg-amber-100 dark:bg-amber-900/40 text-amber-600 dark:text-amber-400 flex items-center justify-center text-xl">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-900 dark:text-white">UI/UX Polish</h4>
+                        <p class="text-xs text-gray-500 dark:text-gray-400">Micro-interactions, accessibility, and sleek typography.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
+            <h2 class="text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400">Contact</h2>
+            <h3 class="text-3xl sm:text-5xl font-extrabold text-gray-900 dark:text-white">Ready to start a project?</h3>
+            <p class="text-lg text-gray-600 dark:text-gray-400 max-w-xl mx-auto">
+                Whether you have a specific proposal or just want to chat about web technology, feel free to drop a message!
+            </p>
+            <div>
+                <button onclick="openModal()" class="px-8 py-4 text-base font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-2xl shadow-xl shadow-blue-500/25 transition-all transform hover:-translate-y-1">
+                    Send a Message <i class="fas fa-paper-plane ml-2"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 py-10 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center space-x-2">
+                <span class="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white font-bold text-sm">A</span>
+                <span class="text-lg font-bold text-gray-900 dark:text-white">Alex Rivera</span>
+            </div>
+
+            <p class="text-sm text-gray-500 dark:text-gray-400">
+                &copy; 2026 Alex Rivera. All rights reserved. Built with modern web standards.
+            </p>
+
+            <div class="flex items-center space-x-4 text-gray-500 dark:text-gray-400">
+                <a href="#" aria-label="GitHub Profile" class="hover:text-blue-600 dark:hover:text-blue-400 text-lg transition-colors"><i class="fab fa-github"></i></a>
+                <a href="#" aria-label="Twitter Profile" class="hover:text-blue-600 dark:hover:text-blue-400 text-lg transition-colors"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="LinkedIn Profile" class="hover:text-blue-600 dark:hover:text-blue-400 text-lg transition-colors"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal Backdrop -->
+    <div id="contactModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="bg-white dark:bg-gray-800 rounded-2xl max-w-md w-full mx-4 p-6 sm:p-8 shadow-2xl transform scale-95 transition-transform duration-300 border border-gray-200 dark:border-gray-700" id="modalBox">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white">Send a Message</h3>
+                <button onclick="closeModal()" class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 text-lg">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <form id="contactForm" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                <div>
+                    <label for="formName" class="block text-xs font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-300 mb-1">Your Name</label>
+                    <input type="text" id="formName" required placeholder="Jane Doe" class="w-full px-4 py-2.5 rounded-xl border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm">
+                </div>
+
+                <div>
+                    <label for="formEmail" class="block text-xs font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-300 mb-1">Your Email</label>
+                    <input type="email" id="formEmail" required placeholder="jane@example.com" class="w-full px-4 py-2.5 rounded-xl border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm">
+                </div>
+
+                <div>
+                    <label for="formMessage" class="block text-xs font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-300 mb-1">Message</label>
+                    <textarea id="formMessage" rows="4" required placeholder="Tell me about your project..." class="w-full px-4 py-2.5 rounded-xl border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm resize-none"></textarea>
+                </div>
+
+                <div class="pt-2 flex justify-end space-x-3">
+                    <button type="button" onclick="closeModal()" class="px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-xl">Cancel</button>
+                    <button type="submit" class="px-5 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-xl shadow-md">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 flex items-center space-x-3 bg-emerald-600 text-white px-5 py-3.5 rounded-xl shadow-xl transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
+        <i class="fas fa-check-circle text-lg"></i>
+        <span id="toastMessage" class="text-sm font-medium">Message sent successfully!</span>
+    </div>
+
+    <script>
+        // Dark Mode Logic
+        const themeToggleBtn = document.getElementById('themeToggleBtn');
+        const themeIcon = document.getElementById('themeIcon');
+
+        function initTheme() {
+            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+                themeIcon.className = 'fas fa-sun text-base';
+            } else {
+                document.documentElement.classList.remove('dark');
+                themeIcon.className = 'fas fa-moon text-base';
+            }
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.theme = 'light';
+                themeIcon.className = 'fas fa-moon text-base';
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.theme = 'dark';
+                themeIcon.className = 'fas fa-sun text-base';
+            }
+        });
+
+        initTheme();
+
+        // Mobile Nav Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileNav = document.getElementById('mobileNav');
+
+        function toggleMobileNav() {
+            mobileNav.classList.toggle('hidden');
+        }
+
+        mobileMenuBtn.addEventListener('click', toggleMobileNav);
+
+        // Project Filter Logic
+        function filterProjects(category) {
+            const cards = document.querySelectorAll('.project-card');
+            const filterBtns = document.querySelectorAll('.filter-btn');
+
+            filterBtns.forEach(btn => {
+                btn.classList.remove('bg-blue-600', 'text-white');
+                btn.classList.add('bg-gray-200', 'dark:bg-gray-800', 'text-gray-700', 'dark:text-gray-300');
+            });
+
+            event.target.classList.remove('bg-gray-200', 'dark:bg-gray-800', 'text-gray-700', 'dark:text-gray-300');
+            event.target.classList.add('bg-blue-600', 'text-white');
+
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Modal Functions
+        const modal = document.getElementById('contactModal');
+        const modalBox = document.getElementById('modalBox');
+
+        function openModal() {
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            modalBox.classList.remove('scale-95');
+            modalBox.classList.add('scale-100');
+        }
+
+        function closeModal() {
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            modalBox.classList.remove('scale-100');
+            modalBox.classList.add('scale-95');
+        }
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+
+        // Form Submission with Custom Toast (No alert)
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            closeModal();
+            
+            // Reset form fields
+            document.getElementById('contactForm').reset();
+
+            // Show Toast
+            const toast = document.getElementById('toast');
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3500);
+        }
+    </script>
+</body>
+</html>
 <html>
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
@@ -460,7 +958,7 @@ DOCTYPE html>
                 btn.classList.add('bg-gray-200', 'dark:bg-gray-800', 'text-gray-700', 'dark:text-gray-300');
             });
 
-            event.target.classList.remove('bg-gray-200', 'dark:bg-gray-800', 'text-gray-700', 'dark:text-gray-300');
+            event.target.classList.remove('bg-gray-200', 'dark:bg-gray-800', 'text-gray-700', 'dark:text-gray-300'); de
             event.target.classList.add('bg-blue-600', 'text-white');
 
             cards.forEach(card =&gt; {
@@ -492,22 +990,7 @@ DOCTYPE html>
             if (e.target === modal) closeModal();
         });
 
-        // Form Submission with Custom Toast (No alert)
-        function handleFormSubmit(e) {
-            e.preventDefault();
-            closeModal();
-            
-            // Reset form fields
-            document.getElementById('contactForm').reset();
-
-            // Show Toast
-            const toast = document.getElementById('toast');
-            toast.classList.remove('translate-y-20', 'opacity-0');
-            
-            setTimeout(() =&gt; {
-                toast.classList.add('translate-y-20', 'opacity-0');
-            }, 3500);
-        }
+        // Form 
     &lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;</pre>
