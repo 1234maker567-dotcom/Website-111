@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 26.2.4.2 (Linux)"/>
+	<meta name="created" content="00:00:00"/>
+	<meta name="changed" content="00:00:00"/>
+	<style type="text/css">
+		@page { size: 8.27in 11.69in; margin: 0.79in }
+		p { margin-bottom: 0.1in; line-height: 115%; background: transparent }
+		pre { font-size: 10pt; font-family: "Liberation Mono", monospace; background: transparent }
+	</style>
+</head>
+<body lang="en-US" link="#000080" vlink="#800000" dir="ltr"><pre>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot; class=&quot;scroll-smooth&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Alex Rivera — Creative Developer &amp; Designer&lt;/title&gt;
+    &lt;!-- Tailwind CSS CDN --&gt;
+    &lt;script src=&quot;https://cdn.tailwindcss.com&quot;&gt;&lt;/script&gt;
+    &lt;!-- Font Awesome Icons --&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css&quot;&gt;
+    &lt;!-- Google Fonts --&gt;
+    &lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.googleapis.com&quot;&gt;
+    &lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.gstatic.com&quot; crossorigin&gt;
+    &lt;link href=&quot;https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
+    &lt;script&gt;
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                        }
+                    }
+                }
+            }
+        }
+    &lt;/script&gt;
+    &lt;style&gt;
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .dark .glass {
+            background: rgba(17, 24, 39, 0.7);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body class=&quot;bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 font-sans transition-colors duration-300&quot;&gt;
+
+    &lt;header class=&quot;sticky top-0 z-40 w-full glass border-b border-gray-200/50 dark:border-gray-800/50 transition-all&quot;&gt;
+        &lt;div class=&quot;max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between&quot;&gt;
+            &lt;a href=&quot;#&quot; class=&quot;flex items-center space-x-2&quot;&gt;
+                &lt;span class=&quot;w-9 h-9 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center text-white font-bold text-lg shadow-md shadow-blue-500/20&quot;&gt;
+                    A
+                &lt;/span&gt;
+                &lt;span class=&quot;text-xl font-bold tracking-tight text-gray-900 dark:text-white&quot;&gt;Alex&lt;span class=&quot;text-blue-600 dark:text-blue-400&quot;&gt;.dev&lt;/span&gt;&lt;/span&gt;
+            &lt;/a&gt;
+
+            &lt;!-- Desktop Nav --&gt;
+            &lt;nav class=&quot;hidden md:flex items-center space-x-8 text-sm font-medium&quot;&gt;
+                &lt;a href=&quot;#about&quot; class=&quot;text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors&quot;&gt;About&lt;/a&gt;
+                &lt;a href=&quot;#projects&quot; class=&quot;text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors&quot;&gt;Projects&lt;/a&gt;
+                &lt;a href=&quot;#skills&quot; class=&quot;text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors&quot;&gt;Skills&lt;/a&gt;
+                &lt;a href=&quot;#contact&quot; class=&quot;text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors&quot;&gt;Contact&lt;/a&gt;
+            &lt;/nav&gt;
+
+            &lt;div class=&quot;flex items-center space-x-3&quot;&gt;
+                &lt;!-- Theme Switcher --&gt;
+                &lt;button id=&quot;themeToggleBtn&quot; aria-label=&quot;Toggle Theme&quot; class=&quot;p-2.5 rounded-xl bg-gray-200/70 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-300/80 dark:hover:bg-gray-700 transition-all&quot;&gt;
+                    &lt;i id=&quot;themeIcon&quot; class=&quot;fas fa-moon text-base&quot;&gt;&lt;/i&gt;
+                &lt;/button&gt;
+                
+                &lt;!-- CTA Button --&gt;
+                &lt;button onclick=&quot;openModal()&quot; class=&quot;hidden sm:inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-xl shadow-md shadow-blue-500/20 transition-all transform active:scale-95&quot;&gt;
+                    Let's Talk
+                &lt;/button&gt;
+
+                &lt;!-- Mobile Menu Button --&gt;
+                &lt;button id=&quot;mobileMenuBtn&quot; aria-label=&quot;Open Mobile Menu&quot; class=&quot;md:hidden p-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-800&quot;&gt;
+                    &lt;i class=&quot;fas fa-bars text-xl&quot;&gt;&lt;/i&gt;
+                &lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Mobile Nav Menu --&gt;
+        &lt;div id=&quot;mobileNav&quot; class=&quot;hidden md:hidden border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 px-4 pt-3 pb-6 space-y-3&quot;&gt;
+            &lt;a href=&quot;#about&quot; onclick=&quot;toggleMobileNav()&quot; class=&quot;block px-3 py-2 rounded-lg text-base font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800&quot;&gt;About&lt;/a&gt;
+            &lt;a href=&quot;#projects&quot; onclick=&quot;toggleMobileNav()&quot; class=&quot;block px-3 py-2 rounded-lg text-base font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800&quot;&gt;Projects&lt;/a&gt;
+            &lt;a href=&quot;#skills&quot; onclick=&quot;toggleMobileNav()&quot; class=&quot;block px-3 py-2 rounded-lg text-base font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800&quot;&gt;Skills&lt;/a&gt;
+            &lt;a href=&quot;#contact&quot; onclick=&quot;toggleMobileNav()&quot; class=&quot;block px-3 py-2 rounded-lg text-base font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800&quot;&gt;Contact&lt;/a&gt;
+            &lt;button onclick=&quot;openModal(); toggleMobileNav();&quot; class=&quot;w-full text-center px-4 py-2.5 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-xl shadow-sm&quot;&gt;
+                Let's Talk
+            &lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/header&gt;
+
+    &lt;section class=&quot;relative pt-20 pb-16 md:pt-32 md:pb-24 overflow-hidden&quot;&gt;
+        &lt;div class=&quot;max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10&quot;&gt;
+            &lt;div class=&quot;text-center max-w-3xl mx-auto space-y-6&quot;&gt;
+                &lt;div class=&quot;inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800/60 text-blue-600 dark:text-blue-400 text-xs sm:text-sm font-medium&quot;&gt;
+                    &lt;span class=&quot;w-2 h-2 rounded-full bg-emerald-500 animate-pulse&quot;&gt;&lt;/span&gt;
+                    Available for freelance &amp; full-time roles
+                &lt;/div&gt;
+
+                &lt;h1 class=&quot;text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-gray-900 dark:text-white leading-tight&quot;&gt;
+                    Crafting modern &lt;br class=&quot;hidden sm:inline&quot; /&gt;
+                    &lt;span class=&quot;gradient-text&quot;&gt;digital experiences&lt;/span&gt;
+                &lt;/h1&gt;
+
+                &lt;p class=&quot;text-lg sm:text-xl text-gray-600 dark:text-gray-400 font-normal leading-relaxed&quot;&gt;
+                    Hi, I'm Alex. I specialize in building responsive web applications, intuitive user interfaces, and engaging digital solutions with clean code.
+                &lt;/p&gt;
+
+                &lt;div class=&quot;flex flex-col sm:flex-row items-center justify-center gap-4 pt-4&quot;&gt;
+                    &lt;a href=&quot;#projects&quot; class=&quot;w-full sm:w-auto px-7 py-3.5 text-base font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-xl shadow-lg shadow-blue-500/25 transition-all transform hover:-translate-y-0.5&quot;&gt;
+                        Explore Work &lt;i class=&quot;fas fa-arrow-right ml-2 text-sm&quot;&gt;&lt;/i&gt;
+                    &lt;/a&gt;
+                    &lt;button onclick=&quot;openModal()&quot; class=&quot;w-full sm:w-auto px-7 py-3.5 text-base font-semibold text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 border border-gray-300 dark:border-gray-700 rounded-xl transition-all&quot;&gt;
+                        Get In Touch
+                    &lt;/button&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Decorative background glow --&gt;
+        &lt;div class=&quot;absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-400/10 dark:bg-blue-600/10 rounded-full blur-3xl pointer-events-none -z-10&quot;&gt;&lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;section class=&quot;py-12 bg-white/60 dark:bg-gray-800/40 border-y border-gray-200/60 dark:border-gray-800&quot;&gt;
+        &lt;div class=&quot;max-w-7xl mx-auto px-4 sm:px-6 lg:px-8&quot;&gt;
+            &lt;div class=&quot;grid grid-cols-2 md:grid-cols-4 gap-8 text-center&quot;&gt;
+                &lt;div class=&quot;space-y-1&quot;&gt;
+                    &lt;div class=&quot;text-3xl sm:text-4xl font-extrabold text-blue-600 dark:text-blue-400&quot;&gt;5+&lt;/div&gt;
+                    &lt;div class=&quot;text-sm font-medium text-gray-500 dark:text-gray-400&quot;&gt;Years Experience&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;space-y-1&quot;&gt;
+                    &lt;div class=&quot;text-3xl sm:text-4xl font-extrabold text-blue-600 dark:text-blue-400&quot;&gt;40+&lt;/div&gt;
+                    &lt;div class=&quot;text-sm font-medium text-gray-500 dark:text-gray-400&quot;&gt;Projects Completed&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;space-y-1&quot;&gt;
+                    &lt;div class=&quot;text-3xl sm:text-4xl font-extrabold text-blue-600 dark:text-blue-400&quot;&gt;25+&lt;/div&gt;
+                    &lt;div class=&quot;text-sm font-medium text-gray-500 dark:text-gray-400&quot;&gt;Happy Clients&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;space-y-1&quot;&gt;
+                    &lt;div class=&quot;text-3xl sm:text-4xl font-extrabold text-blue-600 dark:text-blue-400&quot;&gt;99.9%&lt;/div&gt;
+                    &lt;div class=&quot;text-sm font-medium text-gray-500 dark:text-gray-400&quot;&gt;Client Satisfaction&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;section id=&quot;projects&quot; class=&quot;py-20&quot;&gt;
+        &lt;div class=&quot;max-w-7xl mx-auto px-4 sm:px-6 lg:px-8&quot;&gt;
+            &lt;div class=&quot;flex flex-col md:flex-row md:items-end justify-between mb-12 space-y-4 md:space-y-0&quot;&gt;
+                &lt;div&gt;
+                    &lt;h2 class=&quot;text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400&quot;&gt;Portfolio&lt;/h2&gt;
+                    &lt;p class=&quot;text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mt-1&quot;&gt;Featured Work&lt;/p&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Filter Buttons --&gt;
+                &lt;div class=&quot;flex flex-wrap gap-2&quot;&gt;
+                    &lt;button onclick=&quot;filterProjects('all')&quot; class=&quot;filter-btn active px-4 py-2 text-sm font-medium rounded-xl bg-blue-600 text-white transition-all&quot;&gt;All&lt;/button&gt;
+                    &lt;button onclick=&quot;filterProjects('web')&quot; class=&quot;filter-btn px-4 py-2 text-sm font-medium rounded-xl bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-700 transition-all&quot;&gt;Web Dev&lt;/button&gt;
+                    &lt;button onclick=&quot;filterProjects('app')&quot; class=&quot;filter-btn px-4 py-2 text-sm font-medium rounded-xl bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-700 transition-all&quot;&gt;App Dev&lt;/button&gt;
+                    &lt;button onclick=&quot;filterProjects('design')&quot; class=&quot;filter-btn px-4 py-2 text-sm font-medium rounded-xl bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-700 transition-all&quot;&gt;UI/UX Design&lt;/button&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;!-- Projects Grid --&gt;
+            &lt;div class=&quot;grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8&quot; id=&quot;projectsGrid&quot;&gt;
+                
+                &lt;!-- Project Card 1 --&gt;
+                &lt;div class=&quot;project-card group bg-white dark:bg-gray-800 rounded-2xl overflow-hidden border border-gray-200/80 dark:border-gray-700/60 shadow-sm hover:shadow-xl transition-all duration-300&quot; data-category=&quot;web&quot;&gt;
+                    &lt;div class=&quot;relative overflow-hidden aspect-video bg-gray-100 dark:bg-gray-900&quot;&gt;
+                        &lt;img src=&quot;https://placehold.co/600x400/2563eb/ffffff?text=E-Commerce+Platform&quot; alt=&quot;E-Commerce Project&quot; class=&quot;w-full h-full object-cover group-hover:scale-105 transition-transform duration-500&quot;&gt;
+                        &lt;div class=&quot;absolute inset-0 bg-blue-900/20 opacity-0 group-hover:opacity-100 transition-opacity&quot;&gt;&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;p-6 space-y-3&quot;&gt;
+                        &lt;div class=&quot;flex items-center justify-between&quot;&gt;
+                            &lt;span class=&quot;text-xs font-semibold px-2.5 py-1 rounded-md bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-300&quot;&gt;Web Dev&lt;/span&gt;
+                            &lt;a href=&quot;#&quot; aria-label=&quot;View live project&quot; class=&quot;text-gray-400 hover:text-blue-600 dark:hover:text-blue-400&quot;&gt;&lt;i class=&quot;fas fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+                        &lt;/div&gt;
+                        &lt;h3 class=&quot;text-xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors&quot;&gt;Nexus E-Commerce&lt;/h3&gt;
+                        &lt;p class=&quot;text-gray-600 dark:text-gray-400 text-sm&quot;&gt;A modern full-stack store with real-time inventory management and stripe checkout integrated.&lt;/p&gt;
+                        &lt;div class=&quot;flex flex-wrap gap-2 pt-2 text-xs font-mono text-gray-500 dark:text-gray-400&quot;&gt;
+                            &lt;span class=&quot;px-2 py-1 bg-gray-100 dark:bg-gray-700/50 rounded&quot;&gt;React&lt;/span&gt;
+                            &lt;span class=&quot;px-2 py-1 bg-gray-100 dark:bg-gray-700/50 rounded&quot;&gt;Node.js&lt;/span&gt;
+                            &lt;span class=&quot;px-2 py-1 bg-gray-100 dark:bg-gray-700/50 rounded&quot;&gt;Tailwind&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Project Card 2 --&gt;
+                &lt;div class=&quot;project-card group bg-white dark:bg-gray-800 rounded-2xl overflow-hidden border border-gray-200/80 dark:border-gray-700/60 shadow-sm hover:shadow-xl transition-all duration-300&quot; data-category=&quot;app&quot;&gt;
+                    &lt;div class=&quot;relative overflow-hidden aspect-video bg-gray-100 dark:bg-gray-900&quot;&gt;
+                        &lt;img src=&quot;https://placehold.co/600x400/7c3aed/ffffff?text=Task+Flow+App&quot; alt=&quot;Task Flow App&quot; class=&quot;w-full h-full object-cover group-hover:scale-105 transition-transform duration-500&quot;&gt;
+                        &lt;div class=&quot;absolute inset-0 bg-purple-900/20 opacity-0 group-hover:opacity-100 transition-opacity&quot;&gt;&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;p-6 space-y-3&quot;&gt;
+                        &lt;div class=&quot;flex items-center justify-between&quot;&gt;
+                            &lt;span class=&quot;text-xs font-semibold px-2.5 py-1 rounded-md bg-purple-100 dark:bg-purple-900/50 text-purple-600 dark:text-purple-300&quot;&gt;App Dev&lt;/span&gt;
+                            &lt;a href=&quot;#&quot; aria-label=&quot;View live project&quot; class=&quot;text-gray-400 hover:text-blue-600 dark:hover:text-blue-400&quot;&gt;&lt;i class=&quot;fas fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+                        &lt;/div&gt;
+                        &lt;h3 class=&quot;text-xl font-bold text-gray-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors&quot;&gt;TaskFlow Mobile&lt;/h3&gt;
+                        &lt;p class=&quot;text-gray-600 dark:text-gray-400 text-sm&quot;&gt;Cross-platform productivity software with drag-and-drop Kanban boards and offline sync.&lt;/p&gt;
+                        &lt;div class=&quot;flex flex-wrap gap-2 pt-2 text-xs font-mono text-gray-500 dark:text-gray-400&quot;&gt;
+                            &lt;span class=&quot;px-2 py-1 bg-gray-100 dark:bg-gray-700/50 rounded&quot;&gt;Flutter&lt;/span&gt;
+                            &lt;span class=&quot;px-2 py-1 bg-gray-100 dark:bg-gray-700/50 rounded&quot;&gt;Firebase&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Project Card 3 --&gt;
+                &lt;div class=&quot;project-card group bg-white dark:bg-gray-800 rounded-2xl overflow-hidden border border-gray-200/80 dark:border-gray-700/60 shadow-sm hover:shadow-xl transition-all duration-300&quot; data-category=&quot;design&quot;&gt;
+                    &lt;div class=&quot;relative overflow-hidden aspect-video bg-gray-100 dark:bg-gray-900&quot;&gt;
+                        &lt;img src=&quot;https://placehold.co/600x400/059669/ffffff?text=Fintech+Dashboard&quot; alt=&quot;Fintech Dashboard&quot; class=&quot;w-full h-full object-cover group-hover:scale-105 transition-transform duration-500&quot;&gt;
+                        &lt;div class=&quot;absolute inset-0 bg-emerald-900/20 opacity-0 group-hover:opacity-100 transition-opacity&quot;&gt;&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;p-6 space-y-3&quot;&gt;
+                        &lt;div class=&quot;flex items-center justify-between&quot;&gt;
+                            &lt;span class=&quot;text-xs font-semibold px-2.5 py-1 rounded-md bg-emerald-100 dark:bg-emerald-900/50 text-emerald-600 dark:text-emerald-300&quot;&gt;UI/UX Design&lt;/span&gt;
+                            &lt;a href=&quot;#&quot; aria-label=&quot;View live project&quot; class=&quot;text-gray-400 hover:text-blue-600 dark:hover:text-blue-400&quot;&gt;&lt;i class=&quot;fas fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+                        &lt;/div&gt;
+                        &lt;h3 class=&quot;text-xl font-bold text-gray-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors&quot;&gt;Aura Financial UI&lt;/h3&gt;
+                        &lt;p class=&quot;text-gray-600 dark:text-gray-400 text-sm&quot;&gt;Comprehensive design system and interface layout for a next-gen investment platform.&lt;/p&gt;
+                        &lt;div class=&quot;flex flex-wrap gap-2 pt-2 text-xs font-mono text-gray-500 dark:text-gray-400&quot;&gt;
+                            &lt;span class=&quot;px-2 py-1 bg-gray-100 dark:bg-gray-700/50 rounded&quot;&gt;Figma&lt;/span&gt;
+                            &lt;span class=&quot;px-2 py-1 bg-gray-100 dark:bg-gray-700/50 rounded&quot;&gt;Design System&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;section id=&quot;skills&quot; class=&quot;py-20 bg-gray-100/70 dark:bg-gray-800/50&quot;&gt;
+        &lt;div class=&quot;max-w-7xl mx-auto px-4 sm:px-6 lg:px-8&quot;&gt;
+            &lt;div class=&quot;grid grid-cols-1 lg:grid-cols-2 gap-12 items-center&quot;&gt;
+                
+                &lt;div class=&quot;space-y-6&quot;&gt;
+                    &lt;h2 class=&quot;text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400&quot;&gt;Expertise&lt;/h2&gt;
+                    &lt;h3 class=&quot;text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white&quot;&gt;Skills &amp; Technologies&lt;/h3&gt;
+                    &lt;p class=&quot;text-gray-600 dark:text-gray-400 leading-relaxed&quot;&gt;
+                        I specialize in building modular web systems with modern frameworks and robust backends. Here is a breakdown of my core technical stack.
+                    &lt;/p&gt;
+
+                    &lt;div class=&quot;space-y-4 pt-2&quot;&gt;
+                        &lt;!-- Skill 1 --&gt;
+                        &lt;div&gt;
+                            &lt;div class=&quot;flex justify-between text-sm font-semibold mb-1&quot;&gt;
+                                &lt;span class=&quot;text-gray-800 dark:text-gray-200&quot;&gt;Frontend (React / Next.js / Tailwind)&lt;/span&gt;
+                                &lt;span class=&quot;text-blue-600 dark:text-blue-400&quot;&gt;95%&lt;/span&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;w-full bg-gray-200 dark:bg-gray-700 h-2.5 rounded-full overflow-hidden&quot;&gt;
+                                &lt;div class=&quot;bg-blue-600 h-2.5 rounded-full&quot; style=&quot;width: 95%&quot;&gt;&lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;!-- Skill 2 --&gt;
+                        &lt;div&gt;
+                            &lt;div class=&quot;flex justify-between text-sm font-semibold mb-1&quot;&gt;
+                                &lt;span class=&quot;text-gray-800 dark:text-gray-200&quot;&gt;Backend (Node.js / Python / Express)&lt;/span&gt;
+                                &lt;span class=&quot;text-blue-600 dark:text-blue-400&quot;&gt;88%&lt;/span&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;w-full bg-gray-200 dark:bg-gray-700 h-2.5 rounded-full overflow-hidden&quot;&gt;
+                                &lt;div class=&quot;bg-blue-600 h-2.5 rounded-full&quot; style=&quot;width: 88%&quot;&gt;&lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;!-- Skill 3 --&gt;
+                        &lt;div&gt;
+                            &lt;div class=&quot;flex justify-between text-sm font-semibold mb-1&quot;&gt;
+                                &lt;span class=&quot;text-gray-800 dark:text-gray-200&quot;&gt;Databases (PostgreSQL / MongoDB)&lt;/span&gt;
+                                &lt;span class=&quot;text-blue-600 dark:text-blue-400&quot;&gt;82%&lt;/span&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;w-full bg-gray-200 dark:bg-gray-700 h-2.5 rounded-full overflow-hidden&quot;&gt;
+                                &lt;div class=&quot;bg-blue-600 h-2.5 rounded-full&quot; style=&quot;width: 82%&quot;&gt;&lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Skill Cards Grid --&gt;
+                &lt;div class=&quot;grid grid-cols-2 gap-4&quot;&gt;
+                    &lt;div class=&quot;p-6 bg-white dark:bg-gray-800 rounded-2xl border border-gray-200/80 dark:border-gray-700/60 shadow-sm space-y-3&quot;&gt;
+                        &lt;div class=&quot;w-12 h-12 rounded-xl bg-blue-100 dark:bg-blue-900/40 text-blue-600 dark:text-blue-400 flex items-center justify-center text-xl&quot;&gt;
+                            &lt;i class=&quot;fas fa-code&quot;&gt;&lt;/i&gt;
+                        &lt;/div&gt;
+                        &lt;h4 class=&quot;font-bold text-gray-900 dark:text-white&quot;&gt;Clean Code&lt;/h4&gt;
+                        &lt;p class=&quot;text-xs text-gray-500 dark:text-gray-400&quot;&gt;Maintainable, well-documented, and modular architecture.&lt;/p&gt;
+                    &lt;/div&gt;
+
+                    &lt;div class=&quot;p-6 bg-white dark:bg-gray-800 rounded-2xl border border-gray-200/80 dark:border-gray-700/60 shadow-sm space-y-3&quot;&gt;
+                        &lt;div class=&quot;w-12 h-12 rounded-xl bg-emerald-100 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl&quot;&gt;
+                            &lt;i class=&quot;fas fa-mobile-alt&quot;&gt;&lt;/i&gt;
+                        &lt;/div&gt;
+                        &lt;h4 class=&quot;font-bold text-gray-900 dark:text-white&quot;&gt;Responsive Design&lt;/h4&gt;
+                        &lt;p class=&quot;text-xs text-gray-500 dark:text-gray-400&quot;&gt;Flawless behavior across all screen sizes and mobile devices.&lt;/p&gt;
+                    &lt;/div&gt;
+
+                    &lt;div class=&quot;p-6 bg-white dark:bg-gray-800 rounded-2xl border border-gray-200/80 dark:border-gray-700/60 shadow-sm space-y-3&quot;&gt;
+                        &lt;div class=&quot;w-12 h-12 rounded-xl bg-purple-100 dark:bg-purple-900/40 text-purple-600 dark:text-purple-400 flex items-center justify-center text-xl&quot;&gt;
+                            &lt;i class=&quot;fas fa-bolt&quot;&gt;&lt;/i&gt;
+                        &lt;/div&gt;
+                        &lt;h4 class=&quot;font-bold text-gray-900 dark:text-white&quot;&gt;Performance First&lt;/h4&gt;
+                        &lt;p class=&quot;text-xs text-gray-500 dark:text-gray-400&quot;&gt;Optimized loading speeds, Lighthouse scores, and UX.&lt;/p&gt;
+                    &lt;/div&gt;
+
+                    &lt;div class=&quot;p-6 bg-white dark:bg-gray-800 rounded-2xl border border-gray-200/80 dark:border-gray-700/60 shadow-sm space-y-3&quot;&gt;
+                        &lt;div class=&quot;w-12 h-12 rounded-xl bg-amber-100 dark:bg-amber-900/40 text-amber-600 dark:text-amber-400 flex items-center justify-center text-xl&quot;&gt;
+                            &lt;i class=&quot;fas fa-paint-brush&quot;&gt;&lt;/i&gt;
+                        &lt;/div&gt;
+                        &lt;h4 class=&quot;font-bold text-gray-900 dark:text-white&quot;&gt;UI/UX Polish&lt;/h4&gt;
+                        &lt;p class=&quot;text-xs text-gray-500 dark:text-gray-400&quot;&gt;Micro-interactions, accessibility, and sleek typography.&lt;/p&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;section id=&quot;contact&quot; class=&quot;py-20&quot;&gt;
+        &lt;div class=&quot;max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8&quot;&gt;
+            &lt;h2 class=&quot;text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400&quot;&gt;Contact&lt;/h2&gt;
+            &lt;h3 class=&quot;text-3xl sm:text-5xl font-extrabold text-gray-900 dark:text-white&quot;&gt;Ready to start a project?&lt;/h3&gt;
+            &lt;p class=&quot;text-lg text-gray-600 dark:text-gray-400 max-w-xl mx-auto&quot;&gt;
+                Whether you have a specific proposal or just want to chat about web technology, feel free to drop a message!
+            &lt;/p&gt;
+            &lt;div&gt;
+                &lt;button onclick=&quot;openModal()&quot; class=&quot;px-8 py-4 text-base font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-2xl shadow-xl shadow-blue-500/25 transition-all transform hover:-translate-y-1&quot;&gt;
+                    Send a Message &lt;i class=&quot;fas fa-paper-plane ml-2&quot;&gt;&lt;/i&gt;
+                &lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;!-- Footer --&gt;
+    &lt;footer class=&quot;border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 py-10 transition-colors&quot;&gt;
+        &lt;div class=&quot;max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6&quot;&gt;
+            &lt;div class=&quot;flex items-center space-x-2&quot;&gt;
+                &lt;span class=&quot;w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white font-bold text-sm&quot;&gt;A&lt;/span&gt;
+                &lt;span class=&quot;text-lg font-bold text-gray-900 dark:text-white&quot;&gt;Alex Rivera&lt;/span&gt;
+            &lt;/div&gt;
+
+            &lt;p class=&quot;text-sm text-gray-500 dark:text-gray-400&quot;&gt;
+                &amp;copy; 2026 Alex Rivera. All rights reserved. Built with modern web standards.
+            &lt;/p&gt;
+
+            &lt;div class=&quot;flex items-center space-x-4 text-gray-500 dark:text-gray-400&quot;&gt;
+                &lt;a href=&quot;#&quot; aria-label=&quot;GitHub Profile&quot; class=&quot;hover:text-blue-600 dark:hover:text-blue-400 text-lg transition-colors&quot;&gt;&lt;i class=&quot;fab fa-github&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+                &lt;a href=&quot;#&quot; aria-label=&quot;Twitter Profile&quot; class=&quot;hover:text-blue-600 dark:hover:text-blue-400 text-lg transition-colors&quot;&gt;&lt;i class=&quot;fab fa-twitter&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+                &lt;a href=&quot;#&quot; aria-label=&quot;LinkedIn Profile&quot; class=&quot;hover:text-blue-600 dark:hover:text-blue-400 text-lg transition-colors&quot;&gt;&lt;i class=&quot;fab fa-linkedin&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/footer&gt;
+
+    &lt;!-- Modal Backdrop --&gt;
+    &lt;div id=&quot;contactModal&quot; class=&quot;fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300&quot;&gt;
+        &lt;div class=&quot;bg-white dark:bg-gray-800 rounded-2xl max-w-md w-full mx-4 p-6 sm:p-8 shadow-2xl transform scale-95 transition-transform duration-300 border border-gray-200 dark:border-gray-700&quot; id=&quot;modalBox&quot;&gt;
+            &lt;div class=&quot;flex justify-between items-center mb-6&quot;&gt;
+                &lt;h3 class=&quot;text-xl font-bold text-gray-900 dark:text-white&quot;&gt;Send a Message&lt;/h3&gt;
+                &lt;button onclick=&quot;closeModal()&quot; class=&quot;text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 text-lg&quot;&gt;
+                    &lt;i class=&quot;fas fa-times&quot;&gt;&lt;/i&gt;
+                &lt;/button&gt;
+            &lt;/div&gt;
+
+            &lt;form id=&quot;contactForm&quot; onsubmit=&quot;handleFormSubmit(event)&quot; class=&quot;space-y-4&quot;&gt;
+                &lt;div&gt;
+                    &lt;label for=&quot;formName&quot; class=&quot;block text-xs font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-300 mb-1&quot;&gt;Your Name&lt;/label&gt;
+                    &lt;input type=&quot;text&quot; id=&quot;formName&quot; required placeholder=&quot;Jane Doe&quot; class=&quot;w-full px-4 py-2.5 rounded-xl border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm&quot;&gt;
+                &lt;/div&gt;
+
+                &lt;div&gt;
+                    &lt;label for=&quot;formEmail&quot; class=&quot;block text-xs font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-300 mb-1&quot;&gt;Your Email&lt;/label&gt;
+                    &lt;input type=&quot;email&quot; id=&quot;formEmail&quot; required placeholder=&quot;jane@example.com&quot; class=&quot;w-full px-4 py-2.5 rounded-xl border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm&quot;&gt;
+                &lt;/div&gt;
+
+                &lt;div&gt;
+                    &lt;label for=&quot;formMessage&quot; class=&quot;block text-xs font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-300 mb-1&quot;&gt;Message&lt;/label&gt;
+                    &lt;textarea id=&quot;formMessage&quot; rows=&quot;4&quot; required placeholder=&quot;Tell me about your project...&quot; class=&quot;w-full px-4 py-2.5 rounded-xl border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm resize-none&quot;&gt;&lt;/textarea&gt;
+                &lt;/div&gt;
+
+                &lt;div class=&quot;pt-2 flex justify-end space-x-3&quot;&gt;
+                    &lt;button type=&quot;button&quot; onclick=&quot;closeModal()&quot; class=&quot;px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-xl&quot;&gt;Cancel&lt;/button&gt;
+                    &lt;button type=&quot;submit&quot; class=&quot;px-5 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-xl shadow-md&quot;&gt;Submit&lt;/button&gt;
+                &lt;/div&gt;
+            &lt;/form&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Toast Notification Container --&gt;
+    &lt;div id=&quot;toast&quot; class=&quot;fixed bottom-6 right-6 z-50 flex items-center space-x-3 bg-emerald-600 text-white px-5 py-3.5 rounded-xl shadow-xl transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none&quot;&gt;
+        &lt;i class=&quot;fas fa-check-circle text-lg&quot;&gt;&lt;/i&gt;
+        &lt;span id=&quot;toastMessage&quot; class=&quot;text-sm font-medium&quot;&gt;Message sent successfully!&lt;/span&gt;
+    &lt;/div&gt;
+
+    &lt;script&gt;
+        // Dark Mode Logic
+        const themeToggleBtn = document.getElementById('themeToggleBtn');
+        const themeIcon = document.getElementById('themeIcon');
+
+        function initTheme() {
+            if (localStorage.theme === 'dark' || (!('theme' in localStorage) &amp;&amp; window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+                themeIcon.className = 'fas fa-sun text-base';
+            } else {
+                document.documentElement.classList.remove('dark');
+                themeIcon.className = 'fas fa-moon text-base';
+            }
+        }
+
+        themeToggleBtn.addEventListener('click', () =&gt; {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.theme = 'light';
+                themeIcon.className = 'fas fa-moon text-base';
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.theme = 'dark';
+                themeIcon.className = 'fas fa-sun text-base';
+            }
+        });
+
+        initTheme();
+
+        // Mobile Nav Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileNav = document.getElementById('mobileNav');
+
+        function toggleMobileNav() {
+            mobileNav.classList.toggle('hidden');
+        }
+
+        mobileMenuBtn.addEventListener('click', toggleMobileNav);
+
+        // Project Filter Logic
+        function filterProjects(category) {
+            const cards = document.querySelectorAll('.project-card');
+            const filterBtns = document.querySelectorAll('.filter-btn');
+
+            filterBtns.forEach(btn =&gt; {
+                btn.classList.remove('bg-blue-600', 'text-white');
+                btn.classList.add('bg-gray-200', 'dark:bg-gray-800', 'text-gray-700', 'dark:text-gray-300');
+            });
+
+            event.target.classList.remove('bg-gray-200', 'dark:bg-gray-800', 'text-gray-700', 'dark:text-gray-300');
+            event.target.classList.add('bg-blue-600', 'text-white');
+
+            cards.forEach(card =&gt; {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Modal Functions
+        const modal = document.getElementById('contactModal');
+        const modalBox = document.getElementById('modalBox');
+
+        function openModal() {
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            modalBox.classList.remove('scale-95');
+            modalBox.classList.add('scale-100');
+        }
+
+        function closeModal() {
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            modalBox.classList.remove('scale-100');
+            modalBox.classList.add('scale-95');
+        }
+
+        modal.addEventListener('click', (e) =&gt; {
+            if (e.target === modal) closeModal();
+        });
+
+        // Form Submission with Custom Toast (No alert)
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            closeModal();
+            
+            // Reset form fields
+            document.getElementById('contactForm').reset();
+
+            // Show Toast
+            const toast = document.getElementById('toast');
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            
+            setTimeout(() =&gt; {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3500);
+        }
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+</body>
+</html>
